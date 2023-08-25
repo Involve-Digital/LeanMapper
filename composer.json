@@ -1,5 +1,5 @@
 {
-	"name": "tharos/leanmapper",
+	"name": "involve-digital/leanmapper",
 	"description": "Tiny ORM based on powerful Dibi database abstraction library for PHP.",
 	"homepage": "http://www.leanmapper.com",
 	"license": "MIT",
