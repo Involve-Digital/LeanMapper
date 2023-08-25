@@ -26,7 +26,7 @@ class LeanMapperExtension extends Nette\DI\CompilerExtension
         $container = $this->getContainerBuilder();
         $this->defaults['scanDirs'] = $container->expand('%appDir%');
 
-        return parent::getConfig($this->defaults);
+        return parent::getConfig() + $this->defaults;
     }
 
 
@@ -38,17 +38,17 @@ class LeanMapperExtension extends Nette\DI\CompilerExtension
 
         $index = 1;
         foreach ($this->findRepositories($config) as $repositoryClass) {
-            $container->addDefinition($this->prefix('table.' . $index++))->setClass($repositoryClass);
+            $container->addDefinition($this->prefix('table.' . $index++))->setFactory($repositoryClass);
         }
 
         $container->addDefinition($this->prefix('mapper'))
-            ->setClass('LeanMapper\DefaultMapper');
+            ->setFactory('LeanMapper\DefaultMapper');
 
         $container->addDefinition($this->prefix('entityFactory'))
-            ->setClass('LeanMapper\DefaultEntityFactory');
+            ->setFactory('LeanMapper\DefaultEntityFactory');
 
         $connection = $container->addDefinition($this->prefix('connection'))
-            ->setClass('LeanMapper\Connection', [$config['db']]);
+            ->setFactory('LeanMapper\Connection', [$config['db']]);
 
         if (isset($config['db']['flags'])) {
             $flags = 0;
@@ -59,11 +59,11 @@ class LeanMapperExtension extends Nette\DI\CompilerExtension
         }
 
         if (class_exists('Tracy\Debugger') && $container->parameters['debugMode'] && $config['profiler']) {
-            $panel = $container->addDefinition($this->prefix('panel'))->setClass('Dibi\Bridges\Tracy\Panel');
+            $panel = $container->addDefinition($this->prefix('panel'))->setFactory('Dibi\Bridges\Tracy\Panel');
             $connection->addSetup([$panel, 'register'], [$connection]);
             if ($config['logFile']) {
                 $fileLogger = $container->addDefinition($this->prefix('fileLogger'))
-                    ->setClass('Dibi\Loggers\FileLogger', [$config['logFile']]);
+                    ->setFactory('Dibi\Loggers\FileLogger', [$config['logFile']]);
                 $connection->addSetup('$service->onEvent[] = ?', [
                     [$fileLogger, 'logEvent'],
                 ]);
