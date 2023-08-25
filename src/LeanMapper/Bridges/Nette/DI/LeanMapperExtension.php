@@ -24,7 +24,7 @@ class LeanMapperExtension extends Nette\DI\CompilerExtension
     public function getConfig()
     {
         $container = $this->getContainerBuilder();
-        $this->defaults['scanDirs'] = $container->expand('%appDir%');
+        $this->defaults['scanDirs'] = $container->parameters['appDir'];
 
         return parent::getConfig() + $this->defaults;
     }
