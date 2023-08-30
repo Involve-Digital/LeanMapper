@@ -11,11 +11,14 @@
 
 namespace LeanMapper;
 
+use AllowDynamicProperties;
+
 /**
  * Pointer to specific position within Result instance
  *
  * @author Vojtěch Kohout
  */
+#[AllowDynamicProperties]
 class Row
 {
 

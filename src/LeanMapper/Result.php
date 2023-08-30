@@ -708,7 +708,7 @@ class Result implements \Iterator
     /**
      * @return mixed
      */
-    public function current()
+    public function current(): mixed
     {
         $key = current($this->keys);
         return $this->data[$key];
@@ -716,7 +716,7 @@ class Result implements \Iterator
 
 
 
-    public function next()
+    public function next(): void
     {
         next($this->keys);
     }
@@ -726,7 +726,7 @@ class Result implements \Iterator
     /**
      * @return int
      */
-    public function key()
+    public function key(): mixed
     {
         return current($this->keys);
     }
@@ -736,14 +736,14 @@ class Result implements \Iterator
     /**
      * @return bool
      */
-    public function valid()
+    public function valid(): bool
     {
         return current($this->keys) !== false;
     }
 
 
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->keys = array_keys($this->data);
         reset($this->keys);
