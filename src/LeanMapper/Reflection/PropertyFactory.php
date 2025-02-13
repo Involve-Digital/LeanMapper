@@ -44,7 +44,7 @@ class PropertyFactory
      * @return Property
      * @throws InvalidAnnotationException
      */
-    public static function createFromAnnotation($annotationType, $annotation, EntityReflection $entityReflection, IMapper $mapper = null, callable $factory = null)
+    public static function createFromAnnotation($annotationType, $annotation, EntityReflection $entityReflection, ?IMapper $mapper = null, ?callable $factory = null)
     {
         $aliases = $entityReflection->getAliases();
 

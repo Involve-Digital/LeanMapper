@@ -28,7 +28,7 @@ class DefaultEntityReflectionProvider implements IEntityReflectionProvider
     /**
      * @return Property[]
      */
-    public function getProperties(EntityReflection $entityClass, IMapper $mapper = null)
+    public function getProperties(EntityReflection $entityClass, ?IMapper $mapper = null)
     {
         $properties = [];
         $annotationTypes = ['property', 'property-read'];

@@ -59,7 +59,7 @@ abstract class Entity
      * @param IMapper|null $mapper
      * @return EntityReflection
      */
-    public static function getReflection(IMapper $mapper = null)
+    public static function getReflection(?IMapper $mapper = null)
     {
         $class = get_called_class();
         $mapperClass = $mapper !== null ? get_class($mapper) : '';

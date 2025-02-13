@@ -21,7 +21,7 @@ interface IEntityReflectionProvider
     /**
      * @return Property[]
      */
-    function getProperties(EntityReflection $entityClass, IMapper $mapper = null);
+    function getProperties(EntityReflection $entityClass, ?IMapper $mapper = null);
 
 
 

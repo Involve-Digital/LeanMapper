@@ -46,7 +46,7 @@ interface IMapper
      * @param Row|null $row
      * @return string
      */
-    public function getEntityClass($table, Row $row = null);
+    public function getEntityClass($table, ?Row $row = null);
 
 
 
@@ -112,6 +112,6 @@ interface IMapper
      * @param Caller|null $caller
      * @return array|ImplicitFilters
      */
-    public function getImplicitFilters($entityClass, Caller $caller = null);
+    public function getImplicitFilters($entityClass, ?Caller $caller = null);
 
 }

@@ -53,7 +53,7 @@ class EntityReflection extends \ReflectionClass
      * @param IMapper|null $mapper
      * @param IEntityReflectionProvider|null $entityReflectionProvider
      */
-    public function __construct($argument, IMapper $mapper = null, IEntityReflectionProvider $entityReflectionProvider = null)
+    public function __construct($argument, ?IMapper $mapper = null, ?IEntityReflectionProvider $entityReflectionProvider = null)
     {
         parent::__construct($argument);
         $this->mapper = $mapper;

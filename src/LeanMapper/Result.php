@@ -470,7 +470,7 @@ class Result implements \Iterator
      * @throws InvalidStateException
      * @return Row|null
      */
-    public function getReferencedRow($id, $table, $viaColumn = null, Filtering $filtering = null)
+    public function getReferencedRow($id, $table, $viaColumn = null, ?Filtering $filtering = null)
     {
         if ($viaColumn === null) {
             $viaColumn = $this->mapper->getRelationshipColumn($this->table, $table);
