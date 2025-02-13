@@ -17,10 +17,7 @@ class LeanMapperExtension extends Nette\DI\CompilerExtension
 
 
 
-    /**
-     * Returns extension configuration.
-     * @return array
-     */
+    /** @inheritDoc */
     public function getConfig()
     {
         $container = $this->getContainerBuilder();
@@ -31,7 +28,7 @@ class LeanMapperExtension extends Nette\DI\CompilerExtension
 
 
 
-    public function loadConfiguration()
+    public function loadConfiguration(): void
     {
         $container = $this->getContainerBuilder();
         $config = $this->getConfig();
