@@ -294,7 +294,7 @@ abstract class Entity
      * @param array|null $whitelist
      * @throws InvalidArgumentException
      */
-    public function assign($values, array $whitelist = null)
+    public function assign($values, ?array $whitelist = null)
     {
         if ($whitelist !== null) {
             $whitelist = array_flip($whitelist);
@@ -320,7 +320,7 @@ abstract class Entity
      * @param array|null $whitelist
      * @return array
      */
-    public function getData(array $whitelist = null)
+    public function getData(?array $whitelist = null)
     {
         $data = [];
         if ($whitelist !== null) {
@@ -492,7 +492,7 @@ abstract class Entity
      * @throws InvalidArgumentException
      * @throws InvalidStateException
      */
-    public function makeAlive(IEntityFactory $entityFactory = null, Connection $connection = null, IMapper $mapper = null)
+    public function makeAlive(?IEntityFactory $entityFactory = null, ?Connection $connection = null, ?IMapper $mapper = null)
     {
         $entityFactory === null or $this->setEntityFactory($entityFactory);
         $mapper === null or $this->useMapper($mapper);
@@ -770,8 +770,8 @@ abstract class Entity
      */
     protected function getValueByPropertyWithRelationship(
         $property,
-        Filtering $targetTableFiltering = null,
-        Filtering $relationshipTableFiltering = null
+        ?Filtering $targetTableFiltering = null,
+        ?Filtering $relationshipTableFiltering = null
     ) {
         if (is_string($property)) {
             $property = $this->getCurrentReflection()->getEntityProperty($property);
