@@ -278,10 +278,10 @@ class Row
 
 
     /**
-     * @param Row $row
-     * @param string $viaColumn
+     * @param Row|null $row
+     * @param string|null $viaColumn
      */
-    public function setReferencedRow(?self $row = null, $viaColumn)
+    public function setReferencedRow(?self $row = null, ?string $viaColumn = null)
     {
         $this->referencedRows[$viaColumn] = $row;
     }
