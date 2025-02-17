@@ -315,7 +315,7 @@ class PropertyFactory
         PropertyType $propertyType,
         $relationshipType,
         $definition = null,
-        IMapper $mapper = null
+        ?IMapper $mapper = null
     ) {
         $flags = null;
         if ($relationshipType !== 'hasOne') {

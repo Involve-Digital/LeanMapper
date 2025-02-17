@@ -313,7 +313,7 @@ class Row
      * @param Filtering|null $filtering
      * @param string|null $strategy
      */
-    public function removeFromReferencing(array $values, $table, $viaColumn = null, Filtering $filtering = null, $strategy = null)
+    public function removeFromReferencing(array $values, $table, $viaColumn = null, ?Filtering $filtering = null, $strategy = null)
     {
         $this->result->removeFromReferencing($values, $table, $viaColumn, $filtering, $strategy);
     }
@@ -327,7 +327,7 @@ class Row
      * @param string|null $strategy
      * @return DataDifference
      */
-    public function createReferencingDataDifference($table, $viaColumn = null, Filtering $filtering = null, $strategy = null)
+    public function createReferencingDataDifference($table, $viaColumn = null, ?Filtering $filtering = null, $strategy = null)
     {
         return $this->result->createReferencingDataDifference($table, $viaColumn, $filtering, $strategy);
     }
@@ -366,7 +366,7 @@ class Row
      * @param Filtering|null $filtering
      * @param string|null $strategy
      */
-    public function cleanReferencingAddedAndRemovedMeta($table, $viaColumn = null, Filtering $filtering = null, $strategy = null)
+    public function cleanReferencingAddedAndRemovedMeta($table, $viaColumn = null, ?Filtering $filtering = null, $strategy = null)
     {
         $this->result->cleanReferencingAddedAndRemovedMeta($table, $viaColumn, $filtering, $strategy);
     }
